@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- JQuery Stylesheet -->
     <link
@@ -33,22 +34,38 @@
         </nav>
     </header>
 
-    <!-- Form for users to select game settings -->
-    <!-- Should have the structure of big container, each question container, then the bulma form classes/structure -->
-    <div>
-        <div>
-            <div class="control">
-                <div class="select">
-                    <select>
-                        <!-- Each <option> should be listed out in the JS file -->
-                    </select>
-                </div>
-              </div>
+    <!-- Name div-->
+    <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
         </div>
-    </div>
-
-    <!-- Start Game Button -->
-    <div></div>
+      </div>
+      
+      <!-- Categories -->
+      <div class="field">
+        <label class="label">Categories</label>
+        <div class="control">
+          <div class="select">
+            <select>
+            <!--Drop down with options-->
+              <option>Select dropdown</option>
+              <option>With options...</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Start and cancel buttons-->
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Start game</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    
 
   </body>
 
