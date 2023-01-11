@@ -1,0 +1,49 @@
+html, body {
+    background-color: whitesmoke;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 300%;
+    color: rgb(42, 42, 243);
+    font-weight: bold;
+    text-align: center;
+  }
+
+button {
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    color: black;
+    background: rgb(42, 42, 243);
+    text-align: center;
+    justify-content: center;
+}
+
+.field label { 
+    display: center;
+    text-align: center;
+    
+  }
+
+  .field.is-grouped {
+    justify-content: center;
+  }
+
+
+  .field {
+    justify-content: center;
+  }
+
+  .input {
+    width: 25%;
+    padding-left: 40%;
+  }
+
+  .control {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
