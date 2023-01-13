@@ -33,8 +33,9 @@ function alphabatizeCategories() {
 // Function to add a game category from the APIs
 function addCategoryOption(category) {
     var newOption = document.createElement('option');
+    newOption.id = category.id;
     newOption.textContent = category.catName;
-    newOption.classList.add(`data-id:${category.id}`,`data-api:${category.APIused}`);
+    newOption.setAttribute('name',`${category.APIused}`);
     categorySection.append(newOption);
 }
 
@@ -84,8 +85,8 @@ function initCategories() {
     // Loop through addCategoryOption to add each option to the form
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const addAllCats = async () => {
-        await delay(1000);
-        console.log('waited 1 second to load categories from APIs');
+        await delay(1500);
+        console.log('Waited 1.5 seconds to load categories from APIs');
         for (let i = 0; i < categoryList.length; i++) {
             const cat = categoryList[i];
             addCategoryOption(cat);
@@ -102,10 +103,15 @@ function toggleDifficulty (event) {
 
 // Function to save form responses to local storage as game settings
 function saveSettings() {
+    var optionChild = document.getElementById('categories-select').options.selectedIndex;
+    var optionEl = categorySection.children[optionChild];
+    console.log(optionEl);
     var settings = {
         playerName: nameInput.value,
+        APIused: optionEl.getAttribute('name'),
         category: categorySection.value,
-        numQ: numQsInput.value
+        catID: optionEl.id,
+        numQ: 10
     }
     localStorage.setItem('no-mercy-settings',JSON.stringify(settings));
 }
