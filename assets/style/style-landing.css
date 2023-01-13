@@ -20,6 +20,11 @@ button {
     justify-content: center;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
 .field label { 
     display: center;
     text-align: center;
@@ -37,7 +42,6 @@ button {
 
   .input {
     width: 25%;
-    padding-left: 40%;
   }
 
   .control {
