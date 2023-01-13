@@ -32,18 +32,43 @@
 </header>
 <body>
     <div class="gameOver">
-        
+        <h2 id="winOrLose" class="subtitle is-2 is-spaced"></h2>
+        <div class="notification is-success is-light">
+            <button class="delete"></button>
+            <strong id="funPhrase"></strong>
+        </div>
     </div>
 
     <!-- your score-->
     <div class="yourScore">
-
+        <div class="columns">
+            <div id="col-1" class="column"></div>
+            <div id="col-2" class="column has-background-primary-light">
+                Your score:
+            </div>
+            <div id="col-3" class="column has-background-primary-light"></div>
+            <div id="col-4" class="column"></div>
+        </div>
     </div>
 
     <!--high score-->
     <div class="highScore">
+        <div class="columns">
+            <div class="column" id="append-scores">
+                <h4 class="notification is-info">High Scores</h4>
+                <div class="columns is-mobile">
+                    <div class="column noPadding">
+                        <p class="notification is-info">User Name</p>
+                    </div>
+                    <div class="column noPadding">
+                        <p class="notification is-info">Scores</p>
+                    </div>
+                </div>
 
+            </div>
+        </div>
     </div>
+
      <!-- Include JQuery UI scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

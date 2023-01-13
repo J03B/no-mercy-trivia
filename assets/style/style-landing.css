@@ -1,6 +1,8 @@
 html, body {
     background-color: whitesmoke;
     justify-content: center;
+    box-sizing: border-box;
+    margin: 0 5% 0 5%;
 }
 
 h1 {
@@ -20,9 +22,21 @@ button {
     justify-content: center;
 }
 
+.subtitle {
+    text-align: center;
+}
+
+.column {
+    text-align: center;
+}
+
+.yourScore {
+    margin: 4% 0 4% 0;
+}
+
 .buttons {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .field label { 
@@ -31,23 +45,25 @@ button {
     
   }
 
-  .field.is-grouped {
+.field.is-grouped {
     justify-content: center;
-  }
+}
 
 
-  .field {
+.field {
     justify-content: center;
-  }
+}
 
-  .input {
+.input {
     width: 25%;
-  }
+}
 
-  .control {
+.control {
     display: flex;
     justify-content: center;
-  }
+}
 
-
+.noPadding {
+    padding: 0 0.75rem;
+}
 
