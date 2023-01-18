@@ -2,7 +2,7 @@ html {
     background-color: #efefff;
     justify-content: center;
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 h1 {
@@ -85,7 +85,7 @@ button {
 }
 
 .gameOver {
-    padding: 3%;
+    padding: 3% 3% 0 3%;
 }
 
 /*
