@@ -1,10 +1,12 @@
 // Call global variables
-var userName = "";
-var userScore = 0;
-var userCorrect = 0;
-var highScores = [["Joe",1000],["Chris", 20000]];
-var totalQs = 0;
-var gameCategory = "";
+var gameSettings = JSON.parse(localStorage.getItem('no-mercy-settings'));
+var gameResults = JSON.parse(localStorage.getItem('game-results'));
+var userName = gameSettings.playerName;
+var userScore = gameResults.userScore;
+var userCorrect = gameResults.numCorrect;
+var highScores = [];
+var totalQs = gameSettings.numQ;
+var gameCategory = gameSettings.category;
 var funPhrases = ["Stupidity is far more fascinating than intelligence, after all intelligence has it's limits.",   // 0 or 1 right
                 "Light travels faster than sound. This is why some people appear bright until they speak.",     // 2 or 3 right
                 "The problem with the world is that intelligent people are full of doubts, while the stupid ones are full of confidence.", // 4 or 5 right
@@ -52,45 +54,49 @@ function displayHighScores() {
         const hs = highScores[i];
         var nm = hs[0];
         var scr = hs[1];
+        var cat = hs[2];
 
         // create new elements and append each one
         var setOfDivs = document.createElement('div');
         var userDiv = document.createElement('div');
         var scoreDiv = document.createElement('div');
+        var catDiv = document.createElement('div');
         var nameP = document.createElement('p');
         var scoreP = document.createElement('p');
+        var catP = document.createElement('p');
         
         // Set needed classes for each DOM element
         setOfDivs.classList.add('columns', 'is-mobile');
-        userDiv.classList.add('column', 'noPadding');
-        scoreDiv.classList.add('column', 'noPadding');
-        nameP.classList.add('notification', 'is-info', 'is-light');
-        scoreP.classList.add('notification', 'is-info', 'is-light');
+        userDiv.classList.add('column', 'noPadding', 'is-one-third');
+        scoreDiv.classList.add('column', 'noPadding', 'is-one-third');
+        catDiv.classList.add('column', 'noPadding', 'is-one-third');
+        nameP.classList.add('notification', 'is-info', 'is-light', 'justText');
+        scoreP.classList.add('notification', 'is-info', 'is-light', 'justText');
+        catP.classList.add('notification', 'is-info', 'is-light', 'justText');
 
         // Append each element on top of each other
         nameP.innerHTML = nm;
         scoreP.innerHTML = scr;
+        catP.innerHTML = cat;
+        catDiv.append(catP);
         scoreDiv.append(scoreP);
         userDiv.append(nameP);
-        setOfDivs.append(userDiv, scoreDiv);
+        setOfDivs.append(userDiv, scoreDiv, catDiv);
         parentScores.append(setOfDivs);
     }
 }
 
 // Function to get data from local storage
 function getUserScores() {
-    // first, get the game settings that were used
-    var gameSettings = JSON.parse( localStorage.getItem('no-mercy-settings') );
-    userName = gameSettings.playerName;
-    totalQs = gameSettings.numQ;
-    gameCategory = gameSettings.category;
-
-    // then get the user score and the high scores
-    // e.g.
-    // var allScores = JSON.parse( localStorage.getItem('score'))
-    // userScore = allScores.___
-    // userCorrect = allScores.___
-    // highScores = allScores.___
+    // append highScores with this game, load history of scores and save them
+    var savedScores = JSON.parse(localStorage.getItem('no-mercy-scores'));
+    if (savedScores !== null) {
+        highScores = savedScores;
+        highScores.push([userName,userScore,gameCategory]);
+    } else {
+        highScores = [[userName,userScore ,gameCategory]];
+    }
+    localStorage.setItem('no-mercy-scores',JSON.stringify(highScores));
 }
 
 // function to initialize the page
@@ -111,3 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function playAgain() {
+    window.location.href = 'index.html';
+}
+
+$('#start-button').on('click', playAgain);
