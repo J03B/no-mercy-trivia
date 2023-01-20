@@ -123,3 +123,16 @@ button {
   .button.is-link.is-light {
     color: #eff1fa;
   }
+
+  @media (max-width:760px) {
+    .input {
+        width: 50%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .field.is-grouped>.control:not(:last-child) {
+        margin-bottom: 0.75rem;
+        margin-right: 0;
+    }
+  }
